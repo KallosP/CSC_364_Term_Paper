@@ -226,7 +226,64 @@ Impersonation attacks pose a significant threat, particularly targeting network 
 \subsubsection{MEC Security Challenges}
 The use of a distributed architecture in MEC creates notable security challenges that necessarily complicate security management. The avoidance of going through core networks and the involvement of third-party applications lead to potential billing risks and fraud. Valuable data is transmitted between users and the network edge, meaning the core networks are putting their trust in edge components to handle the sending of users' confidential records, like billing charges, to the home network. Edges of networks are more vulnerable to attack than core networks which creates a large risk of billing errors and fraud. Moreover, edge nodes in networks usually have a lot less computational power and make them great targets for DoS attacks. This can impact the network drastically and spoil the potential of ultra-low latency by degrading it to an unusable state \cite{ref3_3}. 
 
-MEC often hosts third-party applications on the same platforms as critical network functions. If these applications are poorly designed or malicious, they can exhaust resources needed by network functions or introduce malware. This could lead to the compromise of the entire platform. In addition, applications have the ability to influence the configuration of the radio access network (RAN), resulting in the DoS of other users \cite{ref3_3}.
+i want MEC often hosts third-party applications on the same platforms as critical network functions. If these applications are poorly designed or malicious, they can exhaust resources needed by network functions or introduce malware. This could lead to the compromise of the entire platform. In addition, applications have the ability to influence the configuration of the radio access network (RAN), resulting in the DoS of other users \cite{ref3_3}.
+
+\section{Transition from 5G to 6G: Architectural and Technical Changes}
+
+The transition from 5G to 6G networks is driven by the need to address 5G's limitations and enable a new generation of services demanding unprecedented performance levels. This section explores the differences between 5G and 6G, focusing on architectural and technical advancements. The analysis draws heavily from \citet{ref4}, which provides a comprehensive gap analysis of 5G and outlines the vision for 6G. We organize this discussion into three parts: the limitations of 5G necessitating 6G, the new services envisioned for 6G, and the technological enablers defining 6G's architecture.
+
+\subsection{Limitations of 5G}
+
+5G networks have introduced significant advancements over previous generations, enabling services such as enhanced mobile broadband (eMBB), massive machine-type communications (mMTC), and ultra-reliable low-latency communications (URLLC) \citep{ref4}. These services support applications like virtual reality, autonomous driving, and the Internet of Things (IoT). However, 5G struggles to meet the extreme performance requirements of emerging services expected by 2030. According to \citet{ref4}, 5G's architecture, which relies on softwarization, virtualization, millimeter-wave (mm-wave) communications, and massive multiple-input, multiple-output (MIMO), cannot deliver the terabit-per-second data rates, sub-millisecond latencies, and ultra-high reliability needed for future applications. For instance, holographic communications require data rates on the order of terabits per second, which 5G cannot support \citep{ref4_1}. Additionally, 5G's energy efficiency and support for three-dimensional coverage are limited, restricting its ability to handle dynamic, large-scale deployments in scenarios like disaster response or sporadic events \citep{ref4}. These limitations underscore the need for a new generation of wireless networks, driving the development of 6G.
+
+\subsection{New Services Envisioned for 6G}
+
+6G aims to support innovative services that surpass 5G's capabilities, addressing both individual and societal needs. \citet{ref4} identifies several key services that 6G will enable, including:
+
+\begin{itemize}
+  \item \textbf{Holographic Communications}: 6G is expected to support immersive 5D communications that integrate all human senses, enabling holographic interactions. These require data rates in the terabit-per-second range, which 5G networks cannot achieve \citep{ref4_1}.
+  \item \textbf{High-Precision Manufacturing}: 6G will enhance Industry 4.0 by providing ultra-reliable, low-latency communications (URLLC) with reliability on the order of $1-10^{-9}$ and round-trip latencies of 0.1--1 ms, supporting real-time industrial control with minimal delay jitter \citep{ref4_2}.
+  \item \textbf{Sustainable Development and Smart Environments}: 6G will enable pervasive sensing and distributed decision-making for smart cities, intelligent transportation, and energy-efficient systems. This requires 3D communication platforms with near-instantaneous edge cloud functionalities \citep{ref4}.
+  \item \textbf{Enhanced Energy Efficiency}: To support sustainable development, 6G aims to achieve communication efficiencies as low as 1 pJ/b, potentially enabling battery-free IoT devices \citep{ref4_3}.
+\end{itemize}
+
+These services, summarized in Table \ref{fig:6G_kpi}, demand significant improvements over 5G's key performance indicators (KPIs), such as data rate, latency, reliability, and energy efficiency.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{6G_kpi.png}
+  \caption{Comparison of 5G and 6G Key Performance Indicators \cite{ref4}}
+\end{figure}
+
+\subsection{Technological Enablers for 6G}
+
+To meet the demanding requirements of these new services, 6G introduces several architectural and technical advancements over 5G. \citet{ref4} highlights the following key enablers:
+
+\begin{itemize}
+  \item \textbf{New Architecture}: 6G will feature a new Internet architecture that integrates communication and computation resources. This includes a dynamic data plane for holographic communications, a control plane for nearly deterministic links with low jitter, and a management plane with self-optimization capabilities driven by artificial intelligence (AI) \citep{ref4}.
+  \item \textbf{Pervasive AI}: AI will be integral to 6G, enabling self-optimizing networks, semantic communications, and context-aware applications. Semantic communications, which leverage shared knowledge to reconstruct data (e.g., in holographic transmissions), will improve efficiency \citep{ref4_4}.
+  \item \textbf{Subterahertz and Visible Light Communications (VLC)}: To support terabit-per-second data rates, 6G will exploit subterahertz bands (90--450 GHz) and VLC. These technologies offer vast bandwidth but require advancements in transceiver and antenna technologies to overcome energy and range limitations \citep{ref4_1}.
+  \item \textbf{Energy-Efficient Strategies}: 6G will prioritize energy efficiency through techniques like ambient backscattering and wireless charging, enabling battery-free IoT devices \citep{ref4_5}.
+  \item \textbf{3D Coverage}: Unlike 5G's primarily terrestrial infrastructure, 6G will incorporate aerial platforms, such as unmanned aerial vehicles and low-orbit satellites, to provide dynamic, on-demand cloud functionalities in 3D space \citep{ref4}. This is illustrated in Figure \ref{fig:c4_3d_coverage}, which depicts a C4 scenario incorporating 3D coverage.
+\end{itemize}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{3D_coverage.png}
+  \caption{A C4 scenario incorporating 3D coverage. \cite{ref4}}
+\end{figure}
+
+These features collectively address 5G's shortcomings and enable 6G to support next-generation services that will transform society. For instance, the integration of AI and 3D coverage allows 6G to provide near-instantaneous, reliable services in dynamic environments, while subterahertz and VLC technologies meet the high data rate demands of holographic communications.
+
+\subsection{Summary of 5G to 6G Transition}
+
+The transition from 5G to 6G is driven by the need to overcome 5G's limitations in data rate, latency, reliability, and energy efficiency, as well as to support emerging services like holographic communications and high-precision manufacturing. \citet{ref4} provides a clear roadmap for 6G, emphasizing a new architecture, pervasive AI, 3D coverage, and advanced physical layer technologies like subterahertz and VLC. These advancements position 6G to transform industries and societies by enabling a global, intelligent communication infrastructure. A proposed roadmap for 6G development, as outlined in \citet{ref4}, is illustrated in Figure \ref{fig:6g_roadmap}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{6G_roadmap.png}
+  \caption{A proposed 6G roadmap \cite{ref4}}
+\end{figure}
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{main}
