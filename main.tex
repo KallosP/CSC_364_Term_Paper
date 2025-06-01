@@ -383,14 +383,20 @@ Lattice or code based key exchanges add more overhead per handshake, which may d
 \subsection{Takeaways}
 The enablers of Section 4 plug critical holes in 5G technology, but 6G's grand scale and autonomy introduce new risks. Scale straining, machine learning issues, and quantum safe solutions that introduce friction all highlight where additional research and governance is still needed.
 
-
 \section{Conclusion}
 
+In this survey, we explored the security landscape of 5G networks and looked ahead to the potential of 6G, focusing on both the strengths and weaknesses of these technologies. In Section 2, we broke down 5G’s key features, like software-defined networking (SDN), network function virtualization (NFV), network slicing, and mobile edge computing (MEC), and how they make 5G fast, flexible, and scalable \cite{ref6}. We also saw how these technologies create new vulnerabilities. For example SDN’s single point of failure in its controller or MEC’s exposure to attacks at the network edge \cite{ref3}. Section 3 outlined the shift to 6G, highlighting its goals of supporting fast data rates, low latency, and new services like holographic communications and high-precision manufacturing \cite{ref4}. In Section 4, we dug into 6G’s security enablers, such as physical layer security, blockchain for trust, AI-driven defenses, and quantum-safe cryptography, which aim to fix 5G’s weaknesses \cite{ref1,ref2,ref5,ref8}. Finally, Section 5 showed that while 6G’s enablers are promising, they bring new challenges, like blockchain scalability issues, AI model vulnerabilities, and the complexity of transitioning to quantum-safe systems.
 
+Althoug 6G has the potential to address 5G’s security gaps, it’s clear that no single fix will make wireless networks completely secure. The enablers we discussed—like secret key generation, distributed ledgers, and AI-driven threat detection—offer strong defenses against attacks like DDoS or impersonation that are hindering 5G \cite{ref1,ref2,ref5}. But 6G’s massive scale, with billions of connected devices, and its reliance on new tech like subterahertz bands and pervasive AI, create new risks that need more research \cite{ref4}. For example, blockchain ledgers could slow down under the weight of massive data, and AI models could be tricked by clever attackers, messing up trust systems. Moving to quantum-safe cryptography is tough for low-power IoT devices that might stick around for decades.
 
-
-
-
+To make 6G truly secure, the research community needs to tackle these gaps. Here are some key directions in focus for the future:
+\begin{itemize}
+  \item \textbf{Scalable Security Solutions}: We need lightweight blockchain protocols that can handle 6G’s massive data without slowing down or reintroducing trust issues \cite{ref2}.
+  \item \textbf{Robust AI Defenses}: AI-driven security is awesome but risky if models get poisoned. Research should focus on regulated, transparent AI training to keep systems accurate and ethical \cite{ref5}.
+  \item \textbf{Quantum-Safe Transition Plans}: Moving to quantum-safe cryptography is critical, but we need practical ways to update long-lasting IoT devices without breaking the bank or their performance \cite{ref8}.
+  \item \textbf{Real-World Testing}: Many 6G security ideas sound great on paper but haven’t been tested in realistic network setups. Open platforms for simulating large-scale 6G networks could help researchers validate their solutions \cite{ref4}.
+\end{itemize}
+This survey shows that while 6G has big plans to fix 5G’s security problems. By studying 5G’s weaknesses and 6G’s proposed solutions, we’ve highlighted what’s working and where we need to go next to keep future of wireless networks safe.
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{main}
