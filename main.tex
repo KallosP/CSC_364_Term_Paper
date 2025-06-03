@@ -213,7 +213,7 @@ The progression of wireless communication standards and next generation data sys
 Although 5G’s use of advanced technologies offers notable benefits, they also create vulnerabilities that expand the attack surface. The following subsections analyze these vulnerabilities and emphasize their flaws.
 
 \subsubsection{SDN Security Challenges}
-SDN’s use of a logically centralized controller in the control plane can be a great attack vector due to the device being a single point of failure. All the flow requests, as well as the management and control of data packets, are processed by this centralized controller which makes it an obvious target for attackers. A successful attack on the SDN controller would mean the whole network could be controlled by a bad actor. This would mean the attacker could compromise sensitive information and disrupt entire network operations \cite{ref6}. \cite{Lee05}
+SDN’s use of a logically centralized controller in the control plane can be a great attack vector due to the device being a single point of failure. All the flow requests, as well as the management and control of data packets, are processed by this centralized controller which makes it an obvious target for attackers. A successful attack on the SDN controller would mean the whole network could be controlled by a bad actor. This would mean the attacker could compromise sensitive information and disrupt entire network operations \cite{ref6}.
 
 A common type of attack that exploits this kind of vulnerability is the distributed denial-of-service (DDoS) attack. Attackers would flood the controller and overwhelm it with a high volume of traffic or control requests. This would exhaust the controller's resources which would primarily disrupt service availability. Smart devices like electricity meters could lose connection to electricity services. This would imply power outages and unstable connections for customers of MNOs and a loss of confidence in these MNOs \cite{ref3}.
 
@@ -232,7 +232,7 @@ Impersonation attacks pose a significant threat, particularly targeting network 
 \subsubsection{MEC Security Challenges}
 The use of a distributed architecture in MEC creates notable security challenges that necessarily complicate security management. The avoidance of going through core networks and the involvement of third-party applications lead to potential billing risks and fraud. Valuable data is transmitted between users and the network edge, meaning the core networks are putting their trust in edge components to handle the sending of users' confidential records, like billing charges, to the home network. Edges of networks are more vulnerable to attack than core networks which creates a large risk of billing errors and fraud. Moreover, edge nodes in networks usually have a lot less computational power and make them great targets for DoS attacks. This can impact the network drastically and spoil the potential of ultra-low latency by degrading it to an unusable state \cite{ref3_3}. 
 
-i want MEC often hosts third-party applications on the same platforms as critical network functions. If these applications are poorly designed or malicious, they can exhaust resources needed by network functions or introduce malware. This could lead to the compromise of the entire platform. In addition, applications have the ability to influence the configuration of the radio access network (RAN), resulting in the DoS of other users \cite{ref3_3}.
+MEC often hosts third-party applications on the same platforms as critical network functions. If these applications are poorly designed or malicious, they can exhaust resources needed by network functions or introduce malware. This could lead to the compromise of the entire platform. In addition, applications have the ability to influence the configuration of the radio access network (RAN), resulting in the DoS of other users \cite{ref3_3}.
 
 \section{Transition from 5G to 6G: Architectural and Technical Changes}
 
@@ -259,6 +259,7 @@ These services, summarized in Table \ref{fig:6G_kpi}, demand significant improve
   \centering
   \includegraphics[width=\linewidth]{6G_kpi.png}
   \caption{Comparison of 5G and 6G Key Performance Indicators \cite{ref4}}
+  \label{fig:6G_kpi}
 \end{figure}
 
 \subsection{Technological Enablers for 6G}
@@ -277,6 +278,7 @@ To meet the demanding requirements of these new services, 6G introduces several 
   \centering
   \includegraphics[width=\linewidth]{3D_coverage.png}
   \caption{A C4 scenario incorporating 3D coverage. \cite{ref4}}
+  \label{fig:c4_3d_coverage}
 \end{figure}
 
 These features collectively address 5G's shortcomings and enable 6G to support next-generation services that will transform society. For instance, the integration of AI and 3D coverage allows 6G to provide near-instantaneous, reliable services in dynamic environments, while subterahertz and VLC technologies meet the high data rate demands of holographic communications.
@@ -289,11 +291,12 @@ The transition from 5G to 6G is driven by the need to overcome 5G's limitations 
   \centering
   \includegraphics[width=\linewidth]{6G_roadmap.png}
   \caption{A proposed 6G roadmap \cite{ref4}}
+  \label{fig:6g_roadmap}
 \end{figure}
 
 \section{Security Enablers and Issues in 6G Networks}
 
-Before we begin analyzing individual techniques, we first clarify what we mean by a security enabler. An enabler is any architectural feature, protocol primitive, or design paradigm that is built in to a certain technology. Here, we are referring to 6G security enablers specifically, which includes:
+Before we begin analyzing individual techniques, we first clarify what we mean by a security enabler. An enabler is any architectural feature, protocol primitive, or design paradigm that is built into a certain technology. Here, we are specifically referring to 6G security enablers which include:
 \begin{itemize}
   \item \textbf{Lower-layer primitives}: These make attacks physically harder (e.g. beam-level secrecy, secret-key extraction)
   \item \textbf{System-level trust anchors}: These remove single points of failure exposed in SDN/NFV (e.g. verifiable hardware roots, distributed ledgers)
@@ -304,7 +307,7 @@ Before we begin analyzing individual techniques, we first clarify what we mean b
 Each of the following subsections (4.1 - 4.4) examines one enabler through a key reference, then 4.5 summarizes how these enablers connect to the 5G weaknesses cataloged earlier.
 
 \subsection{Enablers Within Physical Layer Security}
-\cite{ref1} argue that rethinking security with a "bottom up" approach, from the physical layer, is both viable and efficient for emerging 6G technology. Their survey connects physical layer security techniques with classical cryptography instead of treating them in isolation, and brings forth two physical layer enablers:
+\cite{ref1} argue that rethinking security with a "bottom-up" approach, from the physical layer, is both viable and efficient for emerging 6G technology. Their survey connects physical layer security techniques with classical cryptography instead of treating them in isolation, and brings forth two physical layer enablers:
 \begin{itemize}
   \item \textbf{Secret Key Generation}: Two devices can use the small, reciprocal variations of their shared wireless channel to agree on fresh secret keys every time they connect. \cite{ref1} show that modern short block codes (e.g. Polar or BCH) can reconcile those keys within the allowed latency of uRLLC, although performance can still degrade if an attacker injects well-crafted interference.
   \item \textbf{Device authentication}: \cite{ref1} explores three options. Silicon fingerprints produced by physical unclonable functions (PUF), Location fingerprints for proximity checks, and a combined scheme where a PUF handshake plus the channel-derived key lets devices resume sessions with zero extra round-trips while remaining protected.
@@ -312,7 +315,7 @@ Each of the following subsections (4.1 - 4.4) examines one enabler through a key
 \cite{ref1} conclude that PLS will not replace higher layer cryptography, but that it will offload part of the trust problem, such as keys, authentication hints, and jamming resilience, onto the physical layer. PLS is treated in this survey as a first line of defense, one which subsequent enablers in higher layers can safely build on.
 
 \subsection{Trust Anchoring: Blockchain and Distributed Ledgers}
-Where 4.1 tackled security at the radio link, this subsection moves up above the transport layer, in the distributed control and service management plane of 6G networks. \cite{ref2} propose an answer to the issue of keeping the virtualized, software 6G infrastructure honest: A distributed ledger layer that records every slice and grants resources so that no single SDN controller or NFV manager can be hijacked or spoofed. Specifically, a ledger layer would cover the following capabilities necessary for security within 6G:
+Where 4.1 tackled security at the radio link, this subsection moves above the transport layer, in the distributed control and service management plane of 6G networks. \cite{ref2} propose an answer to the issue of keeping the software-defined, virtualized 6G infrastructure honest: A distributed ledger layer that records every slice and grants resources so that no single SDN controller or NFV manager can be hijacked or spoofed. Specifically, a ledger layer would cover the following capabilities necessary for security within 6G:
 \begin{itemize}
   \item \textbf{Tamper proof state}: Slices and edge functions are instantiated, migrated and retired at machine speed. Concrete audit trail left behind.
   \item \textbf{Smart contract automation}:  Full Automation of necessary components for this broker, such as real time spectrum leasing, edge compute brokering and service layer agreement enforcement is entirely possible.
@@ -323,7 +326,7 @@ Where 4.1 tackled security at the radio link, this subsection moves up above the
   \includegraphics[width=0.8\linewidth,keepaspectratio]{true_ref2_summary.png}
   \caption{Summary of current issues and blockchain solutions \cite{ref2}}
 \end{figure}
-Combined together, these ledger functions give 6G something that today's 5G stack lacks: a shared source of truth that no operator or attacker can silently rewrite. At the same time \cite{ref2} are clear that a blockchain layer isn't a perfect solution. Reaching appropriate uRLLC targets will force much lighter protocols. Storing petabytes of slice telemetry will require drastic changes, and smart contract bugs as well as quantum vulnerable signatures will open up the system to new attacks. These unresolved issues set the stage for the next two subsections: 4.3 on AI-driven, self healing security operations that can react faster than humans, and 4.4 on post-quantum and context aware cryptography that must protect the ledger's signatures for the lifetime of 6G devices.
+Combined, these ledger functions give 6G something that today's 5G stack lacks: a shared source of truth that no operator or attacker can silently rewrite. At the same time, \cite{ref2} are clear on the fact that a blockchain layer is not a perfect solution. Reaching appropriate uRLLC targets will force much lighter protocols. Storing petabytes of slice telemetry will require drastic changes; smart contract bugs as well as quantum vulnerable signatures will open up the system to new attacks. These unresolved issues set the stage for the next two subsections: 4.3 on AI-driven, self healing security operations that can react faster than humans, and 4.4 on post-quantum and context aware cryptography that must protect the ledger's signatures for the lifetime of 6G devices.
 
 \subsection{Security Automation and Adaptivity}
 This section continues within the 6G management plane.  \cite{ref5} lay out a research agenda where embedded trust models, AI security automation, and post-quantum cryptography form the next set of security enablers. The authors state that 6G is expected to handle 100 billion devices, 10 times more than 5G, and therefore inherited 5G threats such as botnets and denial of service attacks will scale by an order of magnitude as well. A proposed solution to this is an end-to-end trust model with stable device IDs, cross-domain reputation, and policy driven decisions so that the network itself can reduce risky flows, all boosted by the power of machine learning and artificial intelligence. Some of the core capabilities mentioned in the paper are:
@@ -342,10 +345,10 @@ This section continues within the 6G management plane.  \cite{ref5} lay out a re
   \includegraphics[width=\linewidth]{4.3_2.png}
   \caption{Trust-related data sharing for reputation generation \cite{ref5}}
 \end{figure}
-Taken together, these automation changes turn security from a static perimeter into a living control loop. One that can raise or lower its defenses as necessary without the need for human reaction. Yet, \cite{ref5} emphasize that the same ingredients produce new risks: New types of ML poisonings that affect reputation scores, policy conflicts between administrative domains, and the performance requirements for such a living, breathing system.
+Together, these automation changes turn security from a static perimeter into a living control loop. One that can raise or lower its defenses as necessary without the need for human reaction. However, \cite{ref5} emphasize that the same ingredients produce new risks: New types of ML poisonings that affect reputation scores, policy conflicts between administrative domains, and the performance requirements for such a living, breathing system.
 
 \subsection{Cryptography for a Stable and Secure Future}
-Where Sections 4.1 - 4.3 focus on hardening the physical layer, anchoring trust with a ledger, and automating defense with AI respectively, this section turns to the necessary cryptographic and privacy toolkit that must keep those layers trustworthy well into the future, long after quantum computers arrive. \cite{ref8} argue that 6G therefore needs more security enablers, some of which include:
+Where Sections 4.1 - 4.3 focus on hardening the physical layer, anchoring trust with a ledger, and automating defense with AI, respectively, this section turns to the necessary cryptographic and privacy toolkit that must keep those layers trustworthy well into the future, long after quantum computers arrive. \cite{ref8} argue that 6G therefore needs more security enablers, some of which include:
 \begin{itemize}
   \item \textbf{Quantum-safe Cryptography}: RSA, ECC, and the blockchain signatures of Section 4.2 all fall to Shor's algorithm once a general purpose quantum computer is built. We must move authentication and key exchanges to a NIST-class lattice, code, or multivariate schemes. 
   \item \textbf{Heterogeneous Cloud Trust Anchors}: In 6G the "cloud" is no longer one large datacenter. It is a continuous web of smaller networks. This flexibility gives us ultra low latency and energy savings, but it also widens the attack surface. \cite{ref8} mention tamper-resistant hardware roots such as TPM 2.0 and DICE chips or similar secured elements as a solution, as well as trusted execution environments.
@@ -355,7 +358,7 @@ Where Sections 4.1 - 4.3 focus on hardening the physical layer, anchoring trust 
   \includegraphics[width=\linewidth]{4.4.png}
   \caption{Heterogeneous cloud technology expands the 6G threat vector \cite{ref8}}
 \end{figure}
-Together, hardware anchoring and quantum safe algorithms will provide a secure backbone for 6G's existence.
+Both hardware anchoring and quantum safe algorithms will provide a secure backbone for 6G's existence.
 
 \section{Security Issues Within 6G}
 Section 4 showed how the four enablers (physical layer security enhancements, distributed ledger, AI automation, quantum-safe cryptography and heterogeneous cloud trust anchors) provide solutions to the most obvious issues with 5G technology. Respectively, they provide:
@@ -366,7 +369,7 @@ Section 4 showed how the four enablers (physical layer security enhancements, di
   \item \textbf{Tamper resistant hardware roots} 
   \item \textbf{Cryptography that would survive the post-quantum world} 
 \end{itemize}
-These techniques do not form a complete 6G security stack. Instead, they illustrate how different layers could be hardened where 5G is soft. The rest of this section looks at what still breaks, whether that is because the fixes above would have side effects, or because 6G introduces brand new attack surfaces.
+These techniques do not form a complete 6G security stack. Instead, they illustrate how different layers can be hardened where 5G remains vulnerable. The remainder of this section examines what still breaks, whether due to unintended side effects or because 6G introduces entirely new attack surfaces.
 
 \subsection{Scalability and Governing Policy Gaps}
 \begin{itemize}
@@ -378,7 +381,7 @@ These techniques do not form a complete 6G security stack. Instead, they illustr
 Attackers or adversaries can nudge reputation scores, silently tilting the model. Methods such as mandated and regulated training could slow, but not eliminate, this risk. Models would be trained on new types of data, which also broadens the attack vector. AI must necessarily be regulated and inspected frequently to ensure accuracy, both functionally and ethically.
 
 \subsection{Post-Quantum Transitional Issues}
-Lattice or code based key exchanges add more overhead per handshake, which may drastically impact less powerful IoT devices. Some devices are deployed for 20+ years, and rolling out new firmware, certificates, and trust roots before large scale quantum machines arrive remains a heavy task.
+Lattice or code based key exchanges add more overhead per handshake, which may drastically impact less powerful IoT devices. Some devices are deployed for more than 20 years, and rolling out new firmware, certificates, and trust roots before large scale quantum machines arrive remains a heavy task.
 
 \subsection{Takeaways}
 The enablers of Section 4 plug critical holes in 5G technology, but 6G's grand scale and autonomy introduce new risks. Scale straining, machine learning issues, and quantum safe solutions that introduce friction all highlight where additional research and governance is still needed.
@@ -392,11 +395,11 @@ Althoug 6G has the potential to address 5G’s security gaps, it’s clear that 
 To make 6G truly secure, the research community needs to tackle these gaps. Here are some key directions in focus for the future:
 \begin{itemize}
   \item \textbf{Scalable Security Solutions}: We need lightweight blockchain protocols that can handle 6G’s massive data without slowing down or reintroducing trust issues \cite{ref2}.
-  \item \textbf{Robust AI Defenses}: AI-driven security is awesome but risky if models get poisoned. Research should focus on regulated, transparent AI training to keep systems accurate and ethical \cite{ref5}.
+  \item \textbf{Robust AI Defenses}: AI-driven security is great, but risky if the models get poisoned. Research should focus on regulated and transparent AI training to keep systems accurate and ethical \cite{ref5}.
   \item \textbf{Quantum-Safe Transition Plans}: Moving to quantum-safe cryptography is critical, but we need practical ways to update long-lasting IoT devices without breaking the bank or their performance \cite{ref8}.
   \item \textbf{Real-World Testing}: Many 6G security ideas sound great on paper but haven’t been tested in realistic network setups. Open platforms for simulating large-scale 6G networks could help researchers validate their solutions \cite{ref4}.
 \end{itemize}
-This survey shows that while 6G has big plans to fix 5G’s security problems. By studying 5G’s weaknesses and 6G’s proposed solutions, we’ve highlighted what’s working and where we need to go next to keep future of wireless networks safe.
+This survey shows that while 6G has big plans to fix 5G’s security problems. By studying the weaknesses of 5G and the proposed solutions of 6G, we have highlighted what is working and where we need to go next to keep the future of wireless networks safe.
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{main}
